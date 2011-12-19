@@ -4,10 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Can be used of course to define any bean you like and be imported in PropertiesValuesInjection class -->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="classpath:jug.properties"/>
-        <!-- Needed to use @ImportResource and @PropertySource together in same application -->
-        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="locations">
+        <list>
+            <value>classpath:jug.properties</value>
+            <value>classpath:organisation.properties</value>
+        </list>
+        </property>
     </bean>
 
 </beans>

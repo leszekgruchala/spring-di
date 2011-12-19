@@ -25,8 +25,8 @@ public class PropertyValuesInjection {
     @Value("${topic}")
     private String topic;
 
-//    http://static.springsource.org/spring/docs/3.1.x/javadoc-api/org/springframework/context/annotation/Configuration.html
-//    should work...., see "Using the @Value annotation" section
+    //There must be PropertySourcesPlaceholderConfigurer defined to use @Value with @PropertySource
+    //can be defined in xml and imported by @ImportResource or as STATIC bean in @Configuration class
     @Value("${jug.name}")
     private String organisationName;
 
@@ -34,7 +34,7 @@ public class PropertyValuesInjection {
     protected String getOrganisationNameFromEnv() {
         return environment.getProperty("jug.name");
     }
-    
+
     public String getCityOfJug() {
         return "Szczecin";
     }

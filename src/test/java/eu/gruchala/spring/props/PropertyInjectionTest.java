@@ -26,7 +26,7 @@ public class PropertyInjectionTest {
 
     @Resource(name = "getOrganisationNameFromEnv")
     private String jugName;
-    
+
     @Value("#{propertyValuesInjection.cityOfJug}")
     private String cityOfJug;
 
