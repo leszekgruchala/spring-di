@@ -3,6 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+    <!--see  http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/beans.html#beans-java-instantiating-container-web-->
+
     <context-param>
         <param-name>contextClass</param-name>
         <param-value>
@@ -25,13 +27,12 @@
         <servlet-name>appServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
-            <!--<param-name>contextConfigLocation</param-name>-->
-            <!--<param-value>/WEB-INF/spring/applicationContext.xml</param-value>-->
-            <!-- With Spring 3.1 no more XMLs! -->
-            <!-- Shall not be red,
-        see  http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/beans.html#beans-java-instantiating-container-web -->
-            <!--why not contextClass?-->
-            <!--<param-name>contextClass</param-name>-->
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>eu.gruchala.spring.AppConfig</param-value>
         </init-param>

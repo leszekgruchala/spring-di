@@ -14,23 +14,20 @@ import java.util.Comparator;
 /**
  * @author lgr
  */
-//Indicates that class represents a web controller of application and can by autodetected by Spring,
-//also to be @Autowire 'd
 @Controller
 public class HomeController {
 
     final static Logger L = LoggerFactory.getLogger(HomeController.class);
 
-    //Can be also @Autowire 'd by field, without constructor
+    //Can be also @Autowired by field, without constructor
     private final Comparator<String> comparator;
 
-//  With javax.inject on classpath, we can use also standard DI annotations
+    //  With javax.inject on classpath, we can use also standard DI annotations
     @Inject
     public HomeController(Comparator<String> comparator) {
         this.comparator = comparator;
     }
 
-    //Indicates web servlet behavior,TODO can be much more specialized
     @RequestMapping(value = "/")
     public String home() {
         L.info("Invocation of HomeController");
